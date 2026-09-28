@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="EjemploLipeRmiServidorImc" default="default" basedir=".">
+    <description>Builds, tests, and runs the project EjemploLipeRmiServidorImc.</description>
+    <target name="default" depends="jar"/>
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false" source="1.8" target="1.8">
+            <classpath>
+                <fileset dir="lib">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/EjemploLipeRmiServidorImc.jar" basedir="build/classes" manifest="manifest.mf"/>
+    </target>
+    <target name="run" depends="jar">
+        <java classname="johnarrieta.seminario.imc.rmi.Principal" fork="true">
+            <classpath>
+                <pathelement location="dist/EjemploLipeRmiServidorImc.jar"/>
+                <fileset dir="lib">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </java>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
+</project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="EjemploLipeRmiLibImc" default="default" basedir=".">
+    <description>Builds, tests, and runs the project EjemploLipeRmiLibImc.</description>
+    <target name="default" depends="jar"/>
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false" source="1.8" target="1.8"/>
+    </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/EjemploLipeRmiLibImc.jar" basedir="build/classes"/>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
+</project>
